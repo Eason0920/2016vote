@@ -1,0 +1,336 @@
+/*字体也不能使用绝对大小（px），而只能使用相对大小（em）。字体大小是页面默认大小的100%，即16像素。*/
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/*句式只在viewport 寬度不小280px才生效*/
+@media screen and (min-width: 280px) {
+    /*Iframe*/
+    .iframe_p-count {
+        font-size: 2em;
+    }
+
+    .iframe_p-alreadypercent {
+        font-size: 1em;
+    }
+
+    .iframe_p-percent {
+        font-size: 1em;
+    }
+}
+/*句式只在viewport 寬度不小320px才生效*/
+@media screen and (min-width: 320px) {
+    /*Iframe*/
+    .iframe_p-foto {
+        width: 30%;
+    }
+
+    .iframe_p-text {
+        width: 70%;
+    }
+
+    .iframe_p-count {
+        font-size: 2.5em;
+    }
+}
+
+/*句式只在viewport 寬度不小400px才生效*/
+@media screen and (min-width: 400px) {
+    /*Iframe*/
+    .iframe_l-text {
+        font-size: 1em;
+    }
+
+
+    /*TOPPER*/
+
+    /*倒數*/
+
+
+
+}
+/*句式只在viewport 寬度不小450px才生效*/
+@media screen and (min-width: 450px) {
+    /*Iframe*/
+    .p-foto {
+        width: 25%;
+    }
+
+    .p-text {
+        width: 75%;
+    }
+    /*.iframe_p-name{	width:50%;}*/
+    .iframe_p-name .lname {
+        font-size: 1.5em;
+    }
+
+    .iframe_p-count {
+        font-size: 3em;
+    }
+
+    /*.iframe_l-text{width:50%; float:right;}*/
+    .p-alreadypercent {
+        font-size: 1.1em;
+    }
+
+    .p-percent {
+        font-size: 1.1em;
+    }
+
+    .iframe_p-alreadypercent {
+        font-size: 1.3em;
+    }
+
+    .iframe_p-percent {
+        font-size: 1.3em;
+    }
+}
+/*句式只在viewport 寬度不小於590px才生效*/
+@media screen and (min-width: 590px) {
+    /*Iframe*/
+    /*.iframe_p-foto	{ width:23%;}
+.iframe_p-text {width:77%;}*/
+
+    /*TOPPER*/
+    .logo {
+        width: 36%;
+    }
+
+    .right_btn {
+        padding: 5px 10px;
+        font-size: 1.4em;
+    }
+
+    /*主題*/
+    .title {
+        width: 360px;
+    }
+    /*候選人*/
+    .candidate {
+        font-size: 1.7em;
+        margin-bottom: 30px;
+    }
+
+    #gotop {
+        display: block;
+    }
+
+    .iframe_p-alreadypercent {
+        font-size: 1.8em;
+    }
+
+    .iframe_p-percent {
+        font-size: 1.8em;
+    }
+}
+
+
+/*句式只在viewport 寬度不小於750px才生效*/
+@media screen and (min-width: 750px) {
+    .p-foto {
+        width: 20%;
+    }
+
+    .p-text {
+        width: 80%;
+    }
+    /*Iframe*/
+    .iframe_wrap {
+        width: 90%;
+    }
+
+    .iframe_p-count {
+        font-size: 2.7em;
+    }
+
+    .iframe_p-alreadypercent {
+        font-size: 1.8em;
+    }
+
+    .iframe_p-percent {
+        font-size: 1.8em;
+    }
+
+    /*TOPPER*/
+    .logo {
+        width: 30%;
+        padding-top: 15px;
+    }
+
+    /*分頁*/
+    .marginr {
+        margin-right: 40px;
+    }
+
+    .red_btn {
+        padding: 10px 30px;
+    }
+
+    .main-left a img {
+        width: 3em;
+    }
+    /*Tip*/
+    .tip {
+        font-size: 1.5625em;
+        margin: 10px 0;
+    }
+}
+
+/*句式只在viewport 寬度不小於850px才生效*/
+@media screen and (min-width: 850px) {
+    .iframe_p-name {
+        width: 100%;
+    }
+
+    .iframe_p-count {
+        line-height: 1.5em;
+        margin-top: -10px;
+        height: 55px;
+    }
+
+    .iframe_l-text {
+        width: 100%;
+        float: right;
+    }
+    /*候選人*/
+    .candidate {
+        font-size: 1.5em;
+    }
+
+    .box {
+        float: left;
+        width: 31%;
+        margin: 2% 0.5% 0% 0.5%;
+    }
+
+    .p-foto {
+        float: none;
+        width: 100%;
+    }
+
+        .p-foto img {
+            width: 100%;
+            height: 100%;
+        }
+
+    .p-text {
+        float: none;
+        width: 100%; /*margin-top:-10px; */
+    }
+
+    .p-line {
+    }
+
+    .p-count {
+        font-size: 2em;
+        line-height: 1.5em;
+        margin-top: -10px;
+        height: 65px;
+    }
+
+    .p-line-bottom {
+        display: none;
+    }
+
+    .arealist ul li {
+        width: 14.6%;
+    }
+}
+/*句式只在viewport 寬度不小於1002px才生效*/
+@media screen and (min-width: 1002px) {
+
+    .presidential {
+        width: 1002px;
+    }
+
+    .legislator {
+        width: 1002px;
+    }
+    /*不分區*/
+    .seats-area {
+        width: 1002px;
+    }
+
+    .seats-box {
+        width: 24%;
+        float: left;
+        margin-right: 0.6%;
+    }
+
+    .seats-party {
+        font-size: 0.8em;
+    }
+
+    .seats-box ul {
+        height: 400px;
+    }
+    /*統一高可拿掉或加長*/
+    .back-inner {
+        display: none;
+    }
+
+    .big-hidden {
+        display: none;
+    }
+
+    /*TOPPER*/
+    .topper-inner {
+        background-color: #f5dc1f;
+    }
+
+    .topper {
+        width: 1002px;
+    }
+
+    .logo img {
+        width: auto;
+    }
+
+    .topper_btn {
+        width: 35%;
+        margin-top: 5px;
+        padding: 5px 10px;
+    }
+
+    .right_btn {
+        padding: 5px 20px;
+    }
+    /*倒數*/
+    .countdown {
+        width: 1002px;
+    }
+
+        .countdown p {
+            font-size: 1.875em;
+        }
+
+
+    /*填寫資料*/
+    #join-form {
+        width: 1002px;
+    }
+    /*主圖*/
+
+    .banner {
+        width: 1002px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    /*youtube*/
+    .youtube {
+        width: 1002px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    /*候選人*/
+    .p-name {
+        font-size: 1.2em;
+    }
+
+    .legislator-list-box {
+        height: 400px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}

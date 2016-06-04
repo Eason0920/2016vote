@@ -1,0 +1,37 @@
+﻿<!-- Loading begin -->
+<div loader-progress is-show="isShowLoadAnimation" anim-type="2" style="margin-top: 70px;"></div>
+<!-- Loading end-->
+<!--總統各城市票數 begin-->
+<div class="presidential-inner" ng-if="presidentCityJson" style="padding-bottom: 20px;">
+    <div class="presidential">
+        <div class="iframe_wrap">
+            <div ng-repeat="cityData in presidentCityJson.vote_info track by cityData.city_id" auto-focus-city="cityData">
+                <div class="title"><h2>{{cityData.city_id | voteInfoConvert: 'city'}}</h2></div>
+                <div style="margin-bottom:2%;">
+                    <div class="box" ng-repeat="data in (cityData.data | orderBy: totalVoteParse: true) track by data.can_id"
+                         ng-class="((currentWindowWidth <= mobileWindowWidth) ? 'anim-repeat-margin-move' : 'anim-repeat-hor-move')">
+
+                        <div ng-class="data.polnm_id | cssClassByPolConvert: 1">
+                            <div class="p-foto iframe_p-foto" style="position: relative;">
+                                <div class="win anim-enter-down" ng-if="data.self_flag === 'Y'"><img src="/images/vote_01.gif"></div>
+                                <div class="win anim-enter-down" ng-if="data.elec_flag === 'Y'"><img src="/images/vote_02.gif"></div>
+                                <img ng-src="{{imageFolder + data.img}}">
+                            </div>
+                            <div class="p-text iframe_p-text">
+                                <div class="iframe_p-count" ng-class="data.polnm_id | cssClassByPolConvert: 1">
+                                    <span ng-if="data.vote_tt > 0"><span text-effects="data.vote_tt">{{data.vote_tt}}</span><span class="wan"> 萬 </span></span><span text-effects="data.vote_th">{{data.vote_th}}</span>
+                                </div>
+                                <div class="p-line">&nbsp;</div>
+                                <div class="iframe_p-percent">得票率：<span text-effects="data.vote_rate">{{data.vote_rate | number}}</span> %</div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--總統各城市票數 end-->

@@ -1,0 +1,45 @@
+﻿<!--不分區立委總席次 begin-->
+<div class="legislator-inner">
+    <div class="legislator">
+        <div class="title"><h2>立委總席次統計</h2></div>
+        <!-- Loading begin -->
+        <div loader-progress is-show="isShowLoadAnimation" anim-type="2" style="margin-top: 70px;"></div>
+        <!-- Loading end-->
+        <div style="padding-bottom: 20px;">
+            <div ng-if="isShowSeat == 0" style="width: 100%; text-align: center; font-weight: bold;">很抱歉！目前中選會尚未公佈本屆立法委員總席次統計資料</div>
+            <div ng-if="isShowSeat == 1">
+                <!--<div class="tip" style="background-color:#eeeeee;">
+                    本次立委選舉總席位為：<span text-effects="sumTotalSeat()">{{sumTotalSeat()}}</span> 席。
+                </div>-->
+                <div class="tip" style="background-color:#eeeeee;">
+                    本次立委選舉總席位為：<span>{{legislatorTotalSeat}}</span> 席。
+                </div>
+                <div class="container">
+                    <table class="responsive-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">政黨名稱</th>
+                                <th scope="col">區域立委席次</th>
+                                <th scope="col">不分區立委席次</th>
+                                <th scope="col">總席次</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="data in (nonAreaLegislatorSeatJson.vote_info.data | orderBy: totalSeatParse: true) track by data.polnm_id"
+                                class="anim-repeat-background-color-move">
+                                <th scope="row">
+                                    <img ng-src="{{imageFolder + 'pol_' + data.polnm_id + '.gif'}}" style="vertical-align: middle;">
+                                    <span style="vertical-align: middle;">{{data.polnm_id | voteInfoConvert: 'polnm'}}</span>
+                                </th>
+                                <td data-title="區域立委席次" text-effects="data.area_seat">{{data.area_seat}}</td>
+                                <td data-title="不分區立委席次" text-effects="data.non_area_seat">{{data.non_area_seat}}</td>
+                                <td data-title="總席次" text-effects="data.total_seat">{{data.total_seat}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--不分區立委總席次 end-->

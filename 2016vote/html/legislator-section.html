@@ -1,0 +1,43 @@
+﻿<!--立委選舉區資料 begin-->
+<div class="legislator-inner">
+    <div class="legislator" ng-style="{'min-height': outerMinHeightStyleForIE()}">
+        <!--↑↑↑預防使用IE瀏覽器在候選人名單太長在低解析度螢幕下無法完整瀏覽名單，故加入外層框架最小高度，發生原因不明待查？-->
+
+        <!--<div class="legislator" ng-style="{'min-height': ((currentWindowWidth <= mobileWindowWidth) ? '' : '830px')}">-->
+        <!--↑↑↑增加判斷若是桌機裝置瀏覽，加入外層固定高度，以防電腦解析度過低而無法捲動到下方資料(原因待查？)-->
+
+        <div class="title"><h2>{{sectionName}}</h2></div>
+        <div class="tip" style="background-color:#eeeeee; margin: 0 auto; text-align: center;">{{sectionDesc}}</div>
+        <!-- Loading begin -->
+        <div loader-progress is-show="isShowLoadAnimation" anim-type="2" style="margin-top: 70px;"></div>
+        <!-- Loading end-->
+        <div class="iframe_wrap" ng-if="legislatorSectionJson">
+            <div ng-repeat="data in (legislatorSectionJson.vote_info | orderBy: totalVoteParse: true) track by data.can_id"
+                 class="box legislator-box anim-repeat-margin-move" ng-class="data.polnm_id | cssClassByPolConvert: 2"
+                 ng-style="{'margin-bottom': (($last && !(currentWindowWidth <= mobileWindowWidth)) ? '130px' : '0')}">
+                <!--↑↑↑增加判斷若不是行動裝置瀏覽且為最後一筆，加入下方間距，以防電腦解析度過低而無法捲動到下方資料(原因待查？)-->
+                <!--<div ng-repeat="data in (legislatorSectionJson.vote_info | orderBy: totalVoteParse: true) track by data.can_id"
+                     class="box legislator-box anim-repeat-margin-move" ng-class="data.polnm_id | cssClassByPolConvert: 2">-->
+
+                <div class="iframe_p-name" ng-class="data.polnm_id | cssClassByPolConvert: 3" style="position: relative; min-height: 62px;">
+                    <img ng-src="{{imageFolder + 'pol_' + data.polnm_id + '.gif'}}" style="border: 1px solid #FFF;" />
+                    <span class="lname">
+                        <span>{{data.can_id}}</span><span>.</span><span ng-style="(data.name.length > 9) && {'font-size': '0.56em'}">{{data.name}}</span>
+                    </span>
+                    <div>
+                        <img class="anim-enter-down" ng-if="data.elec_flag === 'Y'" src="/images/vote_03.png" />
+                        <!--<img src="/images/vote_04.png" />-->
+                    </div>
+                </div>
+                <div class="iframe_l-text">
+                    <div class="iframe_p-count kmt_text">
+                        <span ng-if="data.vote_tt > 0"><span text-effects="data.vote_tt">{{data.vote_tt}}</span><span class="wan"> 萬 </span></span><span text-effects="data.vote_th">{{data.vote_th}}</span>
+                    </div>
+                </div>
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--立委選舉區資料 end-->

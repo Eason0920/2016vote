@@ -1,0 +1,47 @@
+﻿<!--總統大選開始-->
+<div class="presidential-inner">
+    <div class="presidential">
+        <!--主題開始-->
+        <div class="title" ng-if="isShowPresidentTitle"><h2>總統大選</h2></div>
+        <!--主題結束-->
+        <!-- Loading begin -->
+        <div loader-progress is-show="isShowLoadAnimation" anim-type="2" style="margin-top: 70px;"></div>
+        <!-- Loading end-->
+        <div ng-if="presidentJson" style="padding-bottom: 20px;">
+            <!--總統開票率開始-->
+            <div class="percent_bararea mobileProgress anim-fade-enter-leave">
+                <span class="percent_text">總統開票率 <span ng-bind="presidentJson.vote_info.vote_rate | number" text-effects="presidentJson.vote_info.vote_rate"></span> %</span>
+                <div progress-bar="presidentJson.vote_info.vote_rate" progress-style="progressStyle"></div>
+                <div class="clear"></div>
+            </div>
+            <!--總統開票率結束-->
+            <!--候選人開始-->
+            <div class="candidate">
+                <div class="box" ng-repeat="data in (presidentJson.vote_info.data | orderBy: totalVoteParse: true) track by data.can_id"
+                     ng-class="((currentWindowWidth <= mobileWindowWidth) ? 'anim-repeat-margin-move' : 'anim-repeat-hor-move')">
+
+                    <div ng-class="data.polnm_id | cssClassByPolConvert: 1">
+                        <div class="p-foto" style="position: relative;">
+                            <div class="win anim-enter-down" ng-if="data.self_flag === 'Y'"><img src="/images/vote_01.gif"></div>
+                            <div class="win anim-enter-down" ng-if="data.elec_flag === 'Y'"><img src="/images/vote_02.gif"></div>
+                            <img ng-src="{{imageFolder + data.img}}">
+                        </div>
+                        <div class="p-text">
+                            <div class="p-count" ng-class="data.polnm_id | cssClassByPolConvert: 1">
+                                <span ng-if="data.vote_tt > 0"><span text-effects="data.vote_tt">{{data.vote_tt}}</span><span class="wan"> 萬 </span></span><span text-effects="data.vote_th">{{data.vote_th}}</span>
+                            </div>
+                            <div class="p-line">&nbsp;</div>
+                            <div class="p-percent">得票率：<span text-effects="data.vote_rate">{{data.vote_rate | number}}</span> %</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!--候選人結束-->
+            <div class="wh_text red_bg button radius_bg anim-enter-up" ng-if="isShowPresidentCitysBtn" ng-click="toCitySelectPage()" style="margin-top:10px;"><a>點此看縣市票＞</a></div>
+        </div>
+    </div>
+</div>
+<!--總統大選結束-->

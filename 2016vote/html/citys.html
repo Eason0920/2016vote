@@ -1,0 +1,43 @@
+﻿<div ng-switch on="citysTypeCode">
+    <!--總統城市選單 begin-->
+    <div class="presidential-inner" ng-switch-when="1">
+        <div class="presidential">
+            <!--主題開始-->
+            <div class="title"><h2>總統大選-選擇區域</h2></div>
+            <!--主題結束-->
+            <!-- Loading begin -->
+            <div loader-progress is-show="isShowLoadAnimation" anim-type="2" style="margin-top: 70px;"></div>
+            <!-- Loading end-->
+            <div class="arealist" ng-if="citysDataAry">
+                <ul>
+                    <!--總統選擇區域先排除原住民選區-->
+                    <li ng-repeat="data in (citysDataAry | orderBy: 'no' | filter: {no: '!23'} | filter: {no: '!24'})"
+                        class="et anim-repeat-margin-enter" ng-click="selectCityEvent(data)">{{data.name}}</li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!--總統城市選單 end-->
+    <!--立委城市選單 begin-->
+    <div class="legislator-inner" ng-switch-when="2">
+        <div class="legislator">
+            <!--主題開始-->
+            <div class="title"><h2>立委選舉-選擇區域</h2></div>
+            <!--主題結束-->
+            <!-- Loading begin -->
+            <div loader-progress is-show="isShowLoadAnimation" anim-type="2" style="margin-top: 70px;"></div>
+            <!-- Loading end-->
+            <div class="arealist" ng-if="citysDataAry">
+                <ul>
+                    <li ng-repeat="data in (citysDataAry | orderBy: 'no')"
+                        class="et anim-repeat-margin-enter" ng-click="selectCityEvent(data)">{{data.name}}</li>
+                </ul>
+                <div class="clear"></div>
+                <div class="wh_text red_bg button radius_bg" style="margin-top:10px;" ng-click="toLegislatorSeatPage()"><a>立委總席次統計＞</a></div>
+            </div>
+        </div>
+    </div>
+    <!--立委城市選單 end-->
+</div>
+

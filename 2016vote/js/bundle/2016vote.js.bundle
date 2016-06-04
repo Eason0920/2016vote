@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://vswebessentials.com/schemas/v1/bundle.xsd">
+  <settings>
+    <!--Determines if the bundle file should be automatically optimized after creation/update.-->
+    <minify>true</minify>
+    <!--Determine whether to generate/re-generate this bundle on building the solution.-->
+    <runOnBuild>false</runOnBuild>
+    <!--Specifies a custom subfolder to save files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
+    <outputDirectory />
+  </settings>
+  <!--The order of the <file> elements determines the order of the files in the bundle.-->
+  <files>
+    <file>/js/public/jquery.mousewheel-3.0.6.pack.js</file>
+    <file>/js/public/public-tools.js</file>
+    <file>/js/public/public-angular-directive.js</file>
+    <file>/js/public/public-angular-service.js</file>
+    <file>/js/public/angular-utf8-base64.js</file>
+    <file>/js/ui/fancybox2/jquery.fancybox.js</file>
+    <file>/js/project/app-vote-base-info-json.js</file>
+    <file>/js/project/app-shared.js</file>
+    <file>/js/project/app.js</file>
+    <file>/js/project/app-service.js</file>
+    <file>/js/project/app-directive.js</file>
+    <file>/js/project/app-controller.js</file>
+  </files>
+</bundle>

@@ -1,0 +1,2067 @@
+﻿/* Import other css */
+@import url(../reset.css);
+
+
+
+@charset "utf-8";
+/* CSS Document */
+
+/*--------------------------------------reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, /*p,*/ blockquote, pre,
+/*a,*/ abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* outline-off */
+a {
+    outline: none; /* for Firefox Google Chrome  */
+    behavior: expression(this.onFocus=this.blur()); /* for IE */
+}
+
+    a:link {
+        text-decoration: none;
+    }
+
+    a:visited {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a:active {
+        text-decoration: none;
+    }
+
+
+.wh_text {
+    color: #fff;
+}
+
+    .wh_text a {
+        color: #fff;
+        font-size: 1.7em;
+    }
+
+.radius_bg {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.red_bg {
+    background: #e72a23;
+}
+
+.gray_bg {
+    background: #cecece;
+}
+
+.button {
+    text-align: center;
+    padding: 10px 5px;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+/*这行代码对于大多数嵌入网页的图片+视频有效，所以可以写成*/
+img, object {
+    max-width: 100%;
+    border: 0;
+}
+
+/*老版本的IE不支持max-width，所以只好写成*/
+img {
+    width: 100%;
+    border: 0;
+}
+
+img {
+    -ms-interpolation-mode: bicubic;
+    border: 0;
+}
+
+.clear {
+    clear: both;
+}
+/* textbox */
+.shText {
+    width: 100%;
+    font-size: 1em;
+    padding: 5px 10px !important;
+    color: #555555;
+    vertical-align: middle;
+    /* 圓框 */
+    -webkit-border-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -webkit-border-top-left-radius: 0;
+    -webkit-background-clip: padding-box;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-radius: 4px;
+    background-clip: padding-box;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 0;
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius: 4px;
+    -moz-background-clip: padding;
+    /* textbox 陰影拿掉 */
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear .2s, box-shadow linear .2s;
+    -webkit-transition: all border linear .2s, box-shadow linear .2s ease-out;
+    -webkit-transition: border linear .2s,-webkit-box-shadow linear .2s;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border linear .2s, box-shadow linear .2s;
+    transition: all border linear .2s, box-shadow linear .2s ease-out;
+    transition: border linear .2s,box-shadow linear .2s;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-transition: border linear .2s, box-shadow linear .2s;
+    -moz-transition: all border linear .2s, box-shadow linear .2s ease-out;
+    -moz-transition: border linear .2s,-moz-box-shadow linear .2s;
+    -ms-transition: border linear .2s,box-shadow linear .2s;
+    -o-transition: border linear .2s, box-shadow linear .2s;
+}
+/************************************************************************************
+STRUCTURE 結構
+*************************************************************************************/
+
+
+
+body {
+    font-family: "微軟正黑體","新細明體", "標楷體", Arial, Helvetica, FreeSans, sans-serif;
+    font-size: 1em;
+    padding: 0px;
+    margin: 0 auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #eeeeee;
+}
+/*Iframe*/
+.iframe_wrap {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.iframe_black_location {
+    font-size: 1.5em;
+    margin: 0 auto;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    margin-bottom: 5px;
+}
+
+.iframe_yellow_btn {
+    display: block;
+    font-size: 1.5em;
+    margin: 0 auto;
+    background-color: #fbef5e;
+    color: #000;
+    text-align: center;
+    padding: 5px 0;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.iframe_p-count {
+    font-family: Arial,"微軟正黑體";
+    text-align: right;
+    font-size: 1.5em;
+    padding-right: 3%;
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+.iframe_p-alreadypercent {
+    padding-right: 3%;
+    text-align: right;
+    color: #555555;
+}
+
+.iframe_p-percent {
+    padding-right: 3%;
+    text-align: right;
+    color: #555555;
+}
+
+.iframe_p-name {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+    .iframe_p-name .lname {
+        font-size: 1.5em;
+        color: #FFFFFF;
+    }
+
+.lname-kmt {
+    background-color: #0b169b;
+}
+
+.lname-dpp {
+    background-color: #3b672c;
+}
+
+.lname-pfp {
+    background-color: #d64e12;
+}
+
+.lname-np {
+    background-color: #000;
+}
+
+.lname-tsu {
+    background-color: #905a1d;
+}
+
+.lname-else {
+    background-color: #484848;
+}
+
+.lname-npp {
+    background-color: #8f7b00;
+}
+
+.lname-npsu {
+    background-color: #6f0930;
+}
+
+
+.iframe_p-name img {
+    width: auto;
+    margin: 0 5px;
+}
+
+.iframe_l-text {
+    width: 100%;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+/*BACK*/
+.back-inner {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    height: 49px;
+    text-align: center;
+}
+
+.back {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f8942d;
+    /*position: relative;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    top: 0;
+    z-index: 999;
+    position: fixed;
+}
+
+}
+/*TOPPER*/
+.topper-inner {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f5dc1f;
+    position: relative;
+}
+
+.topper {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f5dc1f;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.logo {
+    width: 50%;
+    display: inline-block;
+    float: left;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+    .logo img {
+        width: auto;
+    }
+
+.topper_btn {
+    width: 40%;
+    display: inline-block;
+    float: right;
+    text-align: right;
+}
+
+.right_btn {
+    display: inline-block;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-size: 1.2em;
+    text-decoration: none;
+    background-color: #e40000;
+    margin: 0px 10px 0 0;
+}
+/*倒數*/
+.countdown-inner {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f8942d;
+    position: relative;
+}
+
+.countdown {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: #FFF;
+}
+
+    .countdown p {
+        font-size: 1.3em;
+        padding-bottom: 10px;
+    }
+
+/*主圖*/
+.banner-inner {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    background-color: #eeeeee;
+}
+
+.banner {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/*main*/
+.main {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    background-color: #eeeeee;
+}
+
+
+
+
+
+/*youtube*/
+.youtube-inner {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    background-color: #eeeeee;
+}
+
+.youtube {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+    .video-container iframe,
+    .video-container object,
+    .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+/*分頁*/
+.main-left {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f5dc1f;
+    /*position: relative;*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    bottom: 0;
+    z-index: 999;
+    position: fixed;
+}
+
+.marginr {
+    margin-right: 5px;
+}
+
+
+.red_btn {
+    -moz-box-shadow: 3px 4px 0px 0px #8a0c0c;
+    -webkit-box-shadow: 3px 4px 0px 0px #8a0c0c;
+    box-shadow: 3px 4px 0px 0px #8a0c0c;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e34242), color-stop(1, #c22929));
+    background: -moz-linear-gradient(top, #e34242 5%, #c22929 100%);
+    background: -webkit-linear-gradient(top, #e34242 5%, #c22929 100%);
+    background: -o-linear-gradient(top, #e34242 5%, #c22929 100%);
+    background: -ms-linear-gradient(top, #e34242 5%, #c22929 100%);
+    background: linear-gradient(to bottom, #e34242 5%, #c22929 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e34242', endColorstr='#c22929',GradientType=0);
+    background-color: #e34242;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #c23434;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 3px 5px;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    .red_btn:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c22929), color-stop(1, #e34242));
+        background: -moz-linear-gradient(top, #c22929 5%, #e34242 100%);
+        background: -webkit-linear-gradient(top, #c22929 5%, #e34242 100%);
+        background: -o-linear-gradient(top, #c22929 5%, #e34242 100%);
+        background: -ms-linear-gradient(top, #c22929 5%, #e34242 100%);
+        background: linear-gradient(to bottom, #c22929 5%, #e34242 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c22929', endColorstr='#e34242',GradientType=0);
+        background-color: #c22929;
+    }
+
+    .red_btn:active {
+        position: relative;
+        top: 1px;
+    }
+
+.map_btn {
+    -moz-box-shadow: 3px 4px 0px 0px #141313;
+    -webkit-box-shadow: 3px 4px 0px 0px #141313;
+    box-shadow: 3px 4px 0px 0px #141313;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #4f4746), color-stop(1, #595353));
+    background: -moz-linear-gradient(top, #4f4746 5%, #595353 100%);
+    background: -webkit-linear-gradient(top, #4f4746 5%, #595353 100%);
+    background: -o-linear-gradient(top, #4f4746 5%, #595353 100%);
+    background: -ms-linear-gradient(top, #4f4746 5%, #595353 100%);
+    background: linear-gradient(to bottom, #4f4746 5%, #595353 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f4746', endColorstr='#595353',GradientType=0);
+    background-color: #4f4746;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #241e1e;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 3px 5px;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    .map_btn:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #595353), color-stop(1, #4f4746));
+        background: -moz-linear-gradient(top, #595353 5%, #4f4746 100%);
+        background: -webkit-linear-gradient(top, #595353 5%, #4f4746 100%);
+        background: -o-linear-gradient(top, #595353 5%, #4f4746 100%);
+        background: -ms-linear-gradient(top, #595353 5%, #4f4746 100%);
+        background: linear-gradient(to bottom, #595353 5%, #4f4746 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#595353', endColorstr='#4f4746',GradientType=0);
+        background-color: #595353;
+    }
+
+    .map_btn:active {
+        margin: 1px 0 -1px 1px;
+        -moz-box-shadow: 2px 3px 0px 0px #141313;
+        -webkit-box-shadow: 2px 3px 0px 0px #141313;
+        box-shadow: 2px 3px 0px 0px #141313;
+    }
+/*總統大選*/
+.presidential-inner {
+    width: 100%;
+    background-color: #eeeeee;
+    position: relative;
+}
+
+.presidential {
+    width: 100%;
+    margin: 0 auto;
+    /*background-color:#999;*/ /*暫放*/
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/*開票率*/
+.percent_bararea {
+    padding: 10px 0;
+}
+
+.percent_bar {
+    height: 50px;
+    display: block;
+    background-color: #af0000;
+    width: auto;
+}
+
+.percent_text {
+    font-size: 1.875em;
+    display: block;
+    color: #af0000;
+    width:;
+}
+/*Tip*/
+.tip {
+    font-size: 1.2em;
+    padding: 5px;
+    margin: 10px;
+}
+/*立委選舉*/
+.legislator-inner {
+    width: 100%;
+    position: relative;
+}
+
+.legislator {
+    width: 100%;
+    margin: 0 auto;
+    /*background-color:#999;*/ /*暫放*/
+    position: relative;
+    padding-bottom: 10px;
+}
+/*不分區*/
+.seats-area {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 10px;
+    font-size: 1.2em;
+}
+
+    .seats-area img {
+        width: auto;
+    }
+
+.seats-box {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.seats-party {
+    padding: 10px;
+    color: #FFF;
+    font-size: 1.3em;
+}
+
+.seats-box ul {
+    padding: 10px;
+}
+/*主題*/
+.title {
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: #666666 1px solid;
+    font-size: 1.875em;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/*候選人*/
+.candidate {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.box {
+    width: 97%;
+    height: auto;
+    margin: 2% auto;
+    border: 5px #1a1a27 solid;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.legislator-box {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #f7f7f7 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f7f7f7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#f7f7f7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, ##ffffff 0%,#f7f7f7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#f7f7f7 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%,#f7f7f7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-9 */
+}
+
+.legislator-kmt-box {
+    border: 5px #79c3fb solid;
+}
+
+.legislator-dpp-box {
+    border: 5px #98ff77 solid;
+}
+
+.legislator-pfp-box {
+    border: 5px #e37c44 solid;
+}
+
+.legislator-np-box {
+    border: 5px #fdf941 solid;
+}
+
+.legislator-tsu-box {
+    border: 5px #da8d33 solid;
+}
+
+.legislator-else-box {
+    border: 5px #737373 solid;
+}
+
+.legislator-npp-box {
+    border: 5px #d7bb00 solid;
+}
+
+.legislator-npsu-box {
+    border: 5px #a80f47 solid;
+}
+
+
+.et {
+    background: #fcfcfc; /* Old browsers */
+    background: -moz-linear-gradient(top, #fcfcfc 0%, #cccccc 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fcfcfc 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #fcfcfc 0%,#cccccc 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #fcfcfc 0%,#cccccc 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #fcfcfc 0%,#cccccc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+
+.kt {
+    background: #fafcfd; /* Old browsers */
+    background: -moz-linear-gradient(top, #fafcfd 0%, #c0ddfd 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafcfd), color-stop(100%,#c0ddfd)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fafcfd 0%,#c0ddfd 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #fafcfd 0%,#c0ddfd 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #fafcfd 0%,#c0ddfd 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #fafcfd 0%,#c0ddfd 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafcfd', endColorstr='#c0ddfd',GradientType=0 ); /* IE6-9 */
+}
+
+.mt {
+    background: rgb(248,249,248); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(248,249,248,1) 0%, rgba(177,254,196,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,249,248,1)), color-stop(100%,rgba(177,254,196,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(248,249,248,1) 0%,rgba(177,254,196,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(248,249,248,1) 0%,rgba(177,254,196,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(248,249,248,1) 0%,rgba(177,254,196,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(248,249,248,1) 0%,rgba(177,254,196,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f9f8', endColorstr='#b1fec4',GradientType=0 ); /* IE6-9 */
+}
+
+.pfp {
+    background: rgb(255,172,132); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(248,249,248,1) 0%, rgba(255,172,132,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,249,248,1)), color-stop(100%,rgba(255,172,132,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(248,249,248,1) 0%,rgba(255,172,132,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(248,249,248,1) 0%,rgba(255,172,132,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(248,249,248,1) 0%,rgba(255,172,132,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(248,249,248,1) 0%,rgba(255,172,132,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f9f8', endColorstr='#eaa685',GradientType=0 ); /* IE6-9 */
+}
+
+.box img {
+    width: auto;
+}
+
+.p-foto {
+    float: left;
+    width: 30%;
+    position: relative;
+}
+
+    .p-foto img {
+        width: 100%;
+        height: 100%;
+    }
+
+.win {
+    position: absolute;
+    z-index: 3;
+}
+
+.p-text {
+    float: right;
+    color: #000;
+    width: 70%;
+}
+
+.p-name {
+    padding-right: 3%;
+    text-align: right;
+}
+
+.wan {
+    font-weight: lighter;
+    font-size: 0.5em;
+}
+
+.p-count {
+    font-family: Arial,"微軟正黑體";
+    text-align: right;
+    font-size: 2em;
+    padding-right: 3%;
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+.p-line {
+    height: 1px;
+    border-bottom: #ccc 1px dashed;
+}
+
+.p-alreadypercent {
+    padding-right: 3%;
+    text-align: right;
+    color: #555555;
+    font-size: 0.8em;
+}
+
+.p-percent {
+    padding-right: 3%;
+    text-align: right;
+    color: #555555;
+    font-size: 1em;
+}
+
+.p-line-bottom {
+    height: 1px;
+    padding-bottom: 10px;
+    border-bottom: #000 1px dashed;
+    margin-bottom: 10px;
+    clear: both;
+}
+/*arealist*/
+.arealist {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+    .arealist ul {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+        .arealist ul li {
+            width: 31.2%;
+            margin: 1% 1%;
+            text-align: left;
+            font-size: 1.1em;
+            padding: 10px 0;
+            cursor: pointer;
+            text-align: center;
+            float: left;
+        }
+
+            .arealist ul li img {
+                width: auto;
+            }
+
+        .arealist ul a li {
+            color: #000;
+        }
+
+        .arealist ul li:hover {
+            background: #f9ea61;
+        }
+
+.legislator .arealist ul li:hover {
+    background: #a50900;
+}
+
+.arealist ul li ul li {
+    text-align: left;
+    font-size: 1em;
+    padding: 10px;
+    cursor: pointer;
+}
+/*arealist2*/
+.arealist2 {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+    .arealist2 ul {
+        margin: 0 auto;
+    }
+
+        .arealist2 ul li {
+            width: 95%;
+            text-align: left;
+            font-size: 1.3em;
+            padding: 10px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+            .arealist2 ul li img {
+                width: auto;
+            }
+
+        .arealist2 ul a li {
+            color: #000;
+        }
+
+.legislator .arealist2 ul li:hover {
+    background: #a50900;
+}
+
+.arrow {
+    display: inline-block;
+    float: right;
+    width: 30px;
+}
+
+.red_bg {
+    background-color: #a50900;
+}
+
+.footer {
+    height: 70px;
+    background-color: #eeeeee;
+}
+
+#gotop {
+    display: none;
+}
+/*Smooth Page Scroll to Top */
+.scrollup {
+    width: 40px;
+    height: 50px;
+    text-indent: -9999px;
+    opacity: 0.85;
+    position: fixed;
+    bottom: 0px;
+    right: 5%;
+    display: none;
+    background: url(../../images/icon_top.png) no-repeat center top #000;
+    z-index: 7000;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/*回上頁*/
+.main-left a img {
+    width: 2em;
+}
+/*字体也不能使用绝对大小（px），而只能使用相对大小（em）。字体大小是页面默认大小的100%，即16像素。*/
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/*句式只在viewport 寬度不小280px才生效*/
+@media screen and (min-width: 280px) {
+    /*Iframe*/
+    .iframe_p-count {
+        font-size: 2em;
+    }
+
+    .iframe_p-alreadypercent {
+        font-size: 1em;
+    }
+
+    .iframe_p-percent {
+        font-size: 1em;
+    }
+}
+/*句式只在viewport 寬度不小320px才生效*/
+@media screen and (min-width: 320px) {
+    /*Iframe*/
+    .iframe_p-foto {
+        width: 30%;
+    }
+
+    .iframe_p-text {
+        width: 70%;
+    }
+
+    .iframe_p-count {
+        font-size: 2.5em;
+    }
+}
+
+/*句式只在viewport 寬度不小400px才生效*/
+@media screen and (min-width: 400px) {
+    /*Iframe*/
+    .iframe_l-text {
+        font-size: 1em;
+    }
+
+
+    /*TOPPER*/
+
+    /*倒數*/
+
+
+
+}
+/*句式只在viewport 寬度不小450px才生效*/
+@media screen and (min-width: 450px) {
+    /*Iframe*/
+    .p-foto {
+        width: 25%;
+    }
+
+    .p-text {
+        width: 75%;
+    }
+    /*.iframe_p-name{	width:50%;}*/
+    .iframe_p-name .lname {
+        font-size: 1.5em;
+    }
+
+    .iframe_p-count {
+        font-size: 3em;
+    }
+
+    /*.iframe_l-text{width:50%; float:right;}*/
+    .p-alreadypercent {
+        font-size: 1.1em;
+    }
+
+    .p-percent {
+        font-size: 1.1em;
+    }
+
+    .iframe_p-alreadypercent {
+        font-size: 1.3em;
+    }
+
+    .iframe_p-percent {
+        font-size: 1.3em;
+    }
+}
+/*句式只在viewport 寬度不小於590px才生效*/
+@media screen and (min-width: 590px) {
+    /*Iframe*/
+    /*.iframe_p-foto	{ width:23%;}
+.iframe_p-text {width:77%;}*/
+
+    /*TOPPER*/
+    .logo {
+        width: 36%;
+    }
+
+    .right_btn {
+        padding: 5px 10px;
+        font-size: 1.4em;
+    }
+
+    /*主題*/
+    .title {
+        width: 360px;
+    }
+    /*候選人*/
+    .candidate {
+        font-size: 1.7em;
+        margin-bottom: 30px;
+    }
+
+    #gotop {
+        display: block;
+    }
+
+    .iframe_p-alreadypercent {
+        font-size: 1.8em;
+    }
+
+    .iframe_p-percent {
+        font-size: 1.8em;
+    }
+}
+
+
+/*句式只在viewport 寬度不小於750px才生效*/
+@media screen and (min-width: 750px) {
+    .p-foto {
+        width: 20%;
+    }
+
+    .p-text {
+        width: 80%;
+    }
+    /*Iframe*/
+    .iframe_wrap {
+        width: 90%;
+    }
+
+    .iframe_p-count {
+        font-size: 2.7em;
+    }
+
+    .iframe_p-alreadypercent {
+        font-size: 1.8em;
+    }
+
+    .iframe_p-percent {
+        font-size: 1.8em;
+    }
+
+    /*TOPPER*/
+    .logo {
+        width: 30%;
+        padding-top: 15px;
+    }
+
+    /*分頁*/
+    .marginr {
+        margin-right: 40px;
+    }
+
+    .red_btn {
+        padding: 10px 30px;
+    }
+
+    .main-left a img {
+        width: 3em;
+    }
+    /*Tip*/
+    .tip {
+        font-size: 1.5625em;
+        margin: 10px 0;
+    }
+}
+
+/*句式只在viewport 寬度不小於850px才生效*/
+@media screen and (min-width: 850px) {
+    .iframe_p-name {
+        width: 100%;
+    }
+
+    .iframe_p-count {
+        line-height: 1.5em;
+        margin-top: -10px;
+        height: 55px;
+    }
+
+    .iframe_l-text {
+        width: 100%;
+        float: right;
+    }
+    /*候選人*/
+    .candidate {
+        font-size: 1.5em;
+    }
+
+    .box {
+        float: left;
+        width: 31%;
+        margin: 2% 0.5% 0% 0.5%;
+    }
+
+    .p-foto {
+        float: none;
+        width: 100%;
+    }
+
+        .p-foto img {
+            width: 100%;
+            height: 100%;
+        }
+
+    .p-text {
+        float: none;
+        width: 100%; /*margin-top:-10px; */
+    }
+
+    .p-line {
+    }
+
+    .p-count {
+        font-size: 2em;
+        line-height: 1.5em;
+        margin-top: -10px;
+        height: 65px;
+    }
+
+    .p-line-bottom {
+        display: none;
+    }
+
+    .arealist ul li {
+        width: 14.6%;
+    }
+}
+/*句式只在viewport 寬度不小於1002px才生效*/
+@media screen and (min-width: 1002px) {
+
+    .presidential {
+        width: 1002px;
+    }
+
+    .legislator {
+        width: 1002px;
+    }
+    /*不分區*/
+    .seats-area {
+        width: 1002px;
+    }
+
+    .seats-box {
+        width: 24%;
+        float: left;
+        margin-right: 0.6%;
+    }
+
+    .seats-party {
+        font-size: 0.8em;
+    }
+
+    .seats-box ul {
+        height: 400px;
+    }
+    /*統一高可拿掉或加長*/
+    .back-inner {
+        display: none;
+    }
+
+    .big-hidden {
+        display: none;
+    }
+
+    /*TOPPER*/
+    .topper-inner {
+        background-color: #f5dc1f;
+    }
+
+    .topper {
+        width: 1002px;
+    }
+
+    .logo img {
+        width: auto;
+    }
+
+    .topper_btn {
+        width: 35%;
+        margin-top: 5px;
+        padding: 5px 10px;
+    }
+
+    .right_btn {
+        padding: 5px 20px;
+    }
+    /*倒數*/
+    .countdown {
+        width: 1002px;
+    }
+
+        .countdown p {
+            font-size: 1.875em;
+        }
+
+
+    /*填寫資料*/
+    #join-form {
+        width: 1002px;
+    }
+    /*主圖*/
+
+    .banner {
+        width: 1002px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    /*youtube*/
+    .youtube {
+        width: 1002px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    /*候選人*/
+    .p-name {
+        font-size: 1.2em;
+    }
+
+    .legislator-list-box {
+        height: 400px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+.container {
+  margin: 5% 3%;
+}
+
+
+.container .responsive-table img{ width:auto; margin-right:5px; border:#FFFFFF 1px solid;}
+@media (min-width: 48em) {
+  .container {
+    margin: 2%;
+  }
+}
+@media (min-width: 75em) {
+  .container {
+    margin: 2em auto;
+    max-width: 75em;
+  }
+}
+
+.responsive-table {
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+@media (min-width: 48em) {
+  .responsive-table {
+    font-size: .9em;
+  }
+}
+@media (min-width: 62em) {
+  .responsive-table {
+    font-size: 1em;
+  }
+}
+.responsive-table thead {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+@media (min-width: 48em) {
+  .responsive-table thead {
+    position: relative;
+    clip: auto;
+    height: auto;
+    width: auto;
+    overflow: auto;
+  }
+}
+.responsive-table thead th {
+  background-color: #555;
+  border: 1px solid #555;
+  font-weight: normal;
+  text-align: center;
+  color: white;
+}
+.responsive-table thead th:first-of-type {
+  text-align: left;
+}
+.responsive-table tbody,
+.responsive-table tr,
+.responsive-table th,
+.responsive-table td {
+  display: block;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+}
+@media (min-width: 48em) {
+  .responsive-table tr {
+    display: table-row;
+  }
+}
+.responsive-table th,
+.responsive-table td {
+  padding: .5em;
+  vertical-align: middle;
+}
+@media (min-width: 30em) {
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em .5em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table th,
+  .responsive-table td {
+    display: table-cell;
+    padding: .5em;
+  }
+}
+@media (min-width: 62em) {
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em .5em;
+  }
+}
+@media (min-width: 75em) {
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em;
+  }
+}
+.responsive-table caption {
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+@media (min-width: 48em) {
+  .responsive-table caption {
+    font-size: 1.5em;
+  }
+}
+.responsive-table tfoot {
+  font-size: .8em;
+  font-style: italic;
+}
+@media (min-width: 62em) {
+  .responsive-table tfoot {
+    font-size: .9em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody {
+    display: table-row-group;
+  }
+}
+.responsive-table tbody tr {
+  margin-bottom: 1em;
+  border: 2px solid #555;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody tr {
+    display: table-row;
+    border-width: 1px;
+  }
+}
+.responsive-table tbody tr:last-of-type {
+  margin-bottom: 0;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody tr:nth-of-type(even) {
+    background-color: rgba(94, 93, 82, 0.1);
+  }
+}
+.responsive-table tbody th[scope="row"] {
+  background-color: #555;
+  color: white;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody th[scope="row"] {
+    background-color: transparent;
+    color: #5e5d52;
+    text-align: left;
+  }
+}
+.responsive-table tbody td {
+  text-align: right;
+}
+@media (min-width: 30em) {
+  .responsive-table tbody td {
+    border-bottom: 1px solid #555;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody td {
+    text-align: center;
+  }
+}
+.responsive-table tbody td[data-type=currency] {
+  text-align: right;
+}
+.responsive-table tbody td[data-title]:before {
+  content: attr(data-title);
+  float: left;
+  font-size: .9em;
+  color: rgba(94, 93, 82, 0.75);
+}
+@media (min-width: 30em) {
+  .responsive-table tbody td[data-title]:before {
+    font-size: .9em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody td[data-title]:before {
+    content: none;
+  }
+}
+/*#region 關閉頁面選取資料高亮 */
+
+body {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/*#endregion */
+
+@media screen and (max-width: 849px) {
+
+    /*#region *** 行動裝置瀏覽時，將開票率文字移至開票進度條內 *** */
+
+    .mobileProgress {
+        position: relative;
+    }
+
+        .mobileProgress > span:first-child {
+            position: absolute;
+            color: #000;
+            font-size: 1.4em;
+            top: 28%;
+            margin-left: 5%;
+        }
+
+    /*#endregion */
+}
+
+@media screen and (max-width: 420px) {
+
+    /*#region *** 行動裝置瀏覽時，文字縮小 *** */
+
+    .mobileScaleTextSize {
+        font-size: 0.8em;
+    }
+
+    /*#endregion */
+}
+
+/*#region *** 讓ng-bind{{}}初始時隱藏 *** */
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+/*#endregion */
+
+/*#region *** anim-left-to-right 左入右出淡入淡出進入離開效果 *** */
+
+.anim-left-to-right.ng-enter, .anim-left-to-right.ng-leave {
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    position: absolute;
+}
+
+.anim-left-to-right.ng-enter {
+    opacity: 0;
+    left: -100%;
+    z-index: 101;
+}
+
+    .anim-left-to-right.ng-enter.ng-enter-active {
+        opacity: 1;
+        left: 0;
+    }
+
+.anim-left-to-right.ng-leave {
+    opacity: 1;
+    left: 0;
+    z-index: 100;
+}
+
+    .anim-left-to-right.ng-leave.ng-leave-active {
+        opacity: 0;
+        left: 100%;
+    }
+
+/*#endregion */
+
+/*#region *** anim-left-to-right-fade-leave 由左至右淡入進入，直接淡出離開效果 *** */
+
+.anim-left-to-right-fade-leave.ng-enter, .anim-left-to-right-fade-leave.ng-leave {
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    position: absolute;
+}
+
+.anim-left-to-right-fade-leave.ng-enter {
+    opacity: 0;
+    left: -100%;
+    z-index: 101;
+}
+
+    .anim-left-to-right-fade-leave.ng-enter.ng-enter-active {
+        opacity: 1;
+        left: 0;
+    }
+
+.anim-left-to-right-fade-leave.ng-leave {
+    width: 100%;
+    opacity: 1;
+    z-index: 0;
+}
+
+    .anim-left-to-right-fade-leave.ng-leave.ng-leave-active {
+        opacity: 0;
+    }
+
+/*#endregion */
+
+/*#region *** anim-slide-down 進入效果 *** */
+
+.anim-slide-down.ng-enter, .anim-slide-down.ng-leave {
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.anim-slide-down.ng-enter {
+    max-height: 0;
+    opacity: 0;
+}
+
+    .anim-slide-down.ng-enter.ng-enter-active {
+        max-height: 500px;
+        overflow-y: hidden;
+        opacity: 1;
+    }
+
+.anim-slide-down.ng-leave {
+    opacity: 1;
+}
+
+    .anim-slide-down.ng-leave.ng-leave-active {
+        opacity: 0;
+    }
+
+/*#endregion */
+
+/*#region *** anim-repeat-hor-move 水平移動滑入效果 *** */
+
+.anim-repeat-hor-move.ng-move {
+    -moz-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    -webkit-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+    position: absolute;
+    opacity: 0;
+    left: -20%;
+}
+
+    .anim-repeat-hor-move.ng-move.ng-move-active {
+        opacity: 1;
+        left: 0;
+    }
+
+/*#endregion */
+
+/*#region *** anim-repeat-fade-move 淡入淡出移動效果 *** */
+
+.anim-repeat-fade-move.ng-move {
+    -moz-transition: all 1.2s ease-in-out;
+    -o-transition: all 1.2s ease-in-out;
+    -webkit-transition: all 1.2s ease-in-out;
+    transition: all 1.2s ease-in-out;
+    opacity: 0;
+}
+
+    .anim-repeat-fade-move.ng-move.ng-move-active {
+        opacity: 1;
+    }
+
+/*#endregion */
+
+/*#region *** anim-fade-enter-leave 淡入淡出進入離開效果 *** */
+
+.anim-fade-enter-leave {
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+    .anim-fade-enter-leave.ng-enter, .anim-fade-enter-leave.ng-leave.ng-leave-active {
+        opacity: 0;
+    }
+
+        .anim-fade-enter-leave.ng-enter.ng-enter-active, .anim-fade-enter-leave.ng-leave {
+            opacity: 1;
+        }
+
+/*#endregion */
+
+/*#region *** anim-repeat-hor-move 背景換色效果 *** */
+
+.anim-repeat-background-color-move.ng-move {
+    -moz-transition: all 1.5s ease-in-out;
+    -o-transition: all 1.5s ease-in-out;
+    -webkit-transition: all 1.5s ease-in-out;
+    transition: all 1.5s ease-in-out;
+    background-color: #ffb2b2 !important;
+    font-weight: bold;
+}
+
+    .anim-repeat-background-color-move.ng-move.ng-move-active {
+        background-color: transparent !important;
+        font-weight: normal;
+    }
+
+/*#endregion */
+
+/*#region *** anim-repeat-margin-move margin偏離移動滑入效果 *** */
+
+.anim-repeat-margin-move.ng-move {
+    -moz-transition: 0.6s linear all;
+    -o-transition: 0.6s linear all;
+    -webkit-transition: 0.6s linear all;
+    transition: 0.6s linear all;
+    margin-left: -5%;
+    opacity: 0;
+}
+
+    .anim-repeat-margin-move.ng-move.ng-move-active {
+        margin-left: 0;
+        opacity: 1;
+    }
+
+/*#endregion */
+
+/*#region *** anim-repeat-margin-enter margin偏離進入效果 *** */
+
+.anim-repeat-margin-enter.ng-enter {
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    margin-left: -20px;
+}
+
+    .anim-repeat-margin-enter.ng-enter.ng-enter-active {
+        margin-left: 0;
+    }
+
+/*#endregion */
+
+/*#region *** anim-leave-up 向上離開效果 *** */
+
+.anim-leave-up.ng-leave {
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    z-index: 100;
+}
+
+    .anim-leave-up.ng-leave.ng-leave-active {
+        top: -100%;
+        opacity: 0;
+    }
+
+/*#endregion */
+
+/*#region *** anim-leave-down 向下離開效果 *** */
+
+.anim-leave-down.ng-leave {
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    opacity: 1;
+    z-index: 100;
+}
+
+    .anim-leave-down.ng-leave.ng-leave-active {
+        bottom: -100%;
+        opacity: 0;
+    }
+
+/*#endregion */
+
+/*#region *** anim-enter-up 向上出現效果*** */
+
+.anim-enter-up.ng-enter {
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    position: absolute;
+    bottom: -100%;
+    opacity: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+    .anim-enter-up.ng-enter.ng-enter-active {
+        bottom: 0;
+        opacity: 1;
+    }
+
+/*#endregion */
+
+/*#region *** anim-enter-down 向下出現效果 *** */
+
+.anim-enter-down.ng-enter {
+    -moz-transition: all 0.5s ease-in-out 0.1s;
+    -o-transition: all 0.5s ease-in-out 0.1s;
+    -webkit-transition: all 0.5s ease-in-out 0.1s;
+    transition: all 0.5s ease-in-out 0.1s;
+    position: absolute;
+    top: -50%;
+    opacity: 0;
+    z-index: 100;
+}
+
+    .anim-enter-down.ng-enter.ng-enter-active {
+        top: 0;
+        opacity: 1;
+    }
+
+/*#endregion */
+/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license */
+.fancybox-wrap,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-image,
+.fancybox-wrap iframe,
+.fancybox-wrap object,
+.fancybox-nav,
+.fancybox-nav span,
+.fancybox-tmp
+{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	vertical-align: top;
+}
+
+.fancybox-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 8020;
+}
+
+.fancybox-skin {
+	position: relative;
+	background: #f9f9f9;
+	color: #444;
+	text-shadow: none;
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	        border-radius: 4px;
+}
+
+.fancybox-opened {
+	z-index: 8030;
+}
+
+.fancybox-opened .fancybox-skin {
+	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	   -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.fancybox-outer, .fancybox-inner {
+	position: relative;
+}
+
+.fancybox-inner {
+	overflow: hidden;
+}
+
+.fancybox-type-iframe .fancybox-inner {
+	-webkit-overflow-scrolling: touch;
+}
+
+.fancybox-error {
+	color: #444;
+	font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	margin: 0;
+	padding: 15px;
+	white-space: nowrap;
+}
+
+.fancybox-image, .fancybox-iframe {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.fancybox-image {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url(../../js/ui/fancybox2/fancybox_sprite.png);
+}
+
+#fancybox-loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -22px;
+	margin-left: -22px;
+	background-position: 0 -108px;
+	opacity: 0.8;
+	cursor: pointer;
+	z-index: 8060;
+}
+
+#fancybox-loading div {
+	width: 44px;
+	height: 44px;
+	background: url(../../js/ui/fancybox2/fancybox_loading.gif) center center no-repeat;
+}
+
+.fancybox-close {
+	position: absolute;
+	top: -18px;
+	right: -18px;
+	width: 36px;
+	height: 36px;
+	cursor: pointer;
+	z-index: 8040;
+}
+
+.fancybox-nav {
+	position: absolute;
+	top: 0;
+	width: 40%;
+	height: 100%;
+	cursor: pointer;
+	text-decoration: none;
+	background: transparent url(../../js/ui/fancybox2/blank.gif); /* helps IE */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	z-index: 8040;
+}
+
+.fancybox-prev {
+	left: 0;
+}
+
+.fancybox-next {
+	right: 0;
+}
+
+.fancybox-nav span {
+	position: absolute;
+	top: 50%;
+	width: 36px;
+	height: 34px;
+	margin-top: -18px;
+	cursor: pointer;
+	z-index: 8040;
+	visibility: hidden;
+}
+
+.fancybox-prev span {
+	left: 10px;
+	background-position: 0 -36px;
+}
+
+.fancybox-next span {
+	right: 10px;
+	background-position: 0 -72px;
+}
+
+.fancybox-nav:hover span {
+	visibility: visible;
+}
+
+.fancybox-tmp {
+	position: absolute;
+	top: -99999px;
+	left: -99999px;
+	visibility: hidden;
+	max-width: 99999px;
+	max-height: 99999px;
+	overflow: visible !important;
+}
+
+/* Overlay helper */
+
+.fancybox-lock {
+    overflow: hidden !important;
+    width: auto;
+}
+
+.fancybox-lock body {
+    overflow: hidden !important;
+}
+
+.fancybox-lock-test {
+    overflow-y: hidden !important;
+}
+
+.fancybox-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	display: none;
+	z-index: 8010;
+	background: url(../../js/ui/fancybox2/fancybox_overlay.png);
+}
+
+.fancybox-overlay-fixed {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+.fancybox-lock .fancybox-overlay {
+	overflow: auto;
+	overflow-y: scroll;
+}
+
+/* Title helper */
+
+.fancybox-title {
+	visibility: hidden;
+	font: normal 13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	position: relative;
+	text-shadow: none;
+	z-index: 8050;
+}
+
+.fancybox-opened .fancybox-title {
+	visibility: visible;
+}
+
+.fancybox-title-float-wrap {
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	margin-bottom: -35px;
+	z-index: 8050;
+	text-align: center;
+}
+
+.fancybox-title-float-wrap .child {
+	display: inline-block;
+	margin-right: -100%;
+	padding: 2px 20px;
+	background: transparent; /* Fallback for web browsers that doesn't support RGBa */
+	background: rgba(0, 0, 0, 0.8);
+	-webkit-border-radius: 15px;
+	   -moz-border-radius: 15px;
+	        border-radius: 15px;
+	text-shadow: 0 1px 2px #222;
+	color: #FFF;
+	font-weight: bold;
+	line-height: 24px;
+	white-space: nowrap;
+}
+
+.fancybox-title-outside-wrap {
+	position: relative;
+	margin-top: 10px;
+	color: #fff;
+}
+
+.fancybox-title-inside-wrap {
+	padding-top: 10px;
+}
+
+.fancybox-title-over-wrap {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: #fff;
+	padding: 10px;
+	background: #000;
+	background: rgba(0, 0, 0, .8);
+}
+
+/*Retina graphics!*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	   only screen and (min--moz-device-pixel-ratio: 1.5),
+	   only screen and (min-device-pixel-ratio: 1.5){
+
+	#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+		background-image: url(../../js/ui/fancybox2/fancybox_sprite@2x.png);
+		background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
+	}
+
+	#fancybox-loading div {
+		background-image: url(../../js/ui/fancybox2/fancybox_loading@2x.gif);
+		background-size: 24px 24px; /*The size of the normal image, half the size of the hi-res image*/
+	}
+}

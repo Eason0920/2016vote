@@ -1,0 +1,34 @@
+﻿<!--不分區立委總席次 begin-->
+<div class="legislator-inner">
+    <div class="legislator">
+        <div class="title"><h2>不分區立委名單</h2></div>
+        <!-- Loading begin -->
+        <div loader-progress is-show="isShowLoadAnimation" anim-type="2" style="margin-top: 70px;"></div>
+        <!-- Loading end-->
+        <div style="padding-bottom: 20px;">
+            <div ng-if="isShowList == 0" style="width: 100%; text-align: center; font-weight: bold; margin-bottom:30px;">很抱歉！目前中選會尚未公佈本屆不分區立法委員名單清冊</div>
+            <div ng-if="isShowList == 1" class="seats-area" style="margin-bottom: 10px;">
+                <div ng-repeat="pol in (nonAreaLegislatorListJson | orderBy: '-count') track by pol.polnm_id"
+                     class="seats-box anim-repeat-margin-move" ng-class="pol.polnm_id | cssClassByPolConvert: 2">
+                    <div class="seats-party" ng-class="pol.polnm_id | cssClassByPolConvert: 3">
+                        <img ng-src="{{imageFolder + 'pol_' + pol.polnm_id + '.gif'}}" style="border: 1px solid #FFF; vertical-align: middle;">
+                        <span style="vertical-align: middle;">{{pol.polnm_id | voteInfoConvert: 'polnm'}}</span>
+                    </div>
+                    <ul class="legislator-box legislator-list-box">
+                        <li class="anim-repeat-margin-enter" ng-repeat="data in pol.data track by $index">
+                            <table style="border-collapse: collapse; border-spacing: 0;">
+                                <tr>
+                                    <td style="width: 30px; text-align: right;">{{($index + 1) + '.'}}</td>
+                                    <td style="padding-left: 5px;">{{data.name}}</td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="wh_text red_bg button radius_bg" ng-click="toLegislatorSeatPage()"><a>立委總席次統計＞</a></div>
+        </div>
+    </div>
+</div>
+<!--不分區立委總席次 end-->

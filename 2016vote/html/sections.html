@@ -1,0 +1,28 @@
+﻿<!--選舉區 begin-->
+<div class="legislator-inner">
+    <div class="legislator">
+        <div class="title"><h2>{{selectCityName}}</h2></div>
+        <!-- Loading begin -->
+        <div loader-progress is-show="isShowLoadAnimation" anim-type="2" style="margin-top: 70px;"></div>
+        <!-- Loading end-->
+        <div class="arealist2" ng-if="sectionsDataAry" style="padding-bottom: 50px;">
+            <ul>
+                <li class="et" ng-repeat="data in (sectionsDataAry | orderBy: 'seq')" ng-click="selectSectionEvent(data)">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 40px; vertical-align: middle;">
+                                <img ng-src="{{imageFolder + 'no_' + data.seq + '.png'}}">
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <span class="mobileScaleTextSize">{{data.web_desc}}</span>
+                            </td>
+                            <td style="width: 40px; vertical-align: middle;">
+                                <span class="arrow">＞</span>
+                            </td>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--選舉區 end-->

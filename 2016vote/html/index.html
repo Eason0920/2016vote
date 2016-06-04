@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <!--配合CDN，關閉禁用快取，20160104-->
+    <!--<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />-->
+    <title>東森新聞-2016總統大選即時開票</title>
+    <link rel="shortcut icon" href="/images/EBC_favicon.ico" />
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+    <link href="/css/bundle/2016vote.min.css" rel="stylesheet" />
+    <!--資料讀取動畫無法加入打包壓縮檔？只好此這裡引用-->
+    <link href="/css/public-loader-animate.css" rel="stylesheet" />
+
+</head>
+
+<body ng-app="app">
+    <div ng-controller="indexCtrl">
+        <!--topper-inner開始-->
+        <div class="topper-inner">
+            <div class="topper">
+                <div class="logo" ng-click="toWebsiteIndex()" style="cursor: pointer;">
+                    <a><img src="/images/logo.png" alt="EBC東森新聞"></a>
+                </div>
+                <div class="topper_btn">
+                    <!--<a class="right_btn" ng-click="youtubeLinkForPage()">直播</a>-->
+                    <a class="right_btn fancybox.iframe" ng-href="{{youtubeLinkForFancybox}}"
+                       ng-click="fancyboxClick($event, 'header')" easy-fancybox="fancyboxParams">直播</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!--topper-inner結束-->
+        <!--倒數開始 -->
+        <div id="countdownWrap" class="countdown-inner ng-cloak anim-enter-down anim-leave-up" ng-if="countdownParams.isShow()">
+            <div class="countdown">
+                <p>開票倒數</p>
+                <div id="countdown" align="center" countdown="countdownParams"></div>
+            </div>
+        </div>
+        <!--倒數結束-->
+        <!--主圖開始-->
+        <div class="banner-inner ng-cloak anim-enter-down anim-leave-up" ng-if="(initJson.banner_img.length > 0) && (isShowBanner)">
+            <div class="banner">
+                <a class="fancybox.iframe" ng-href="{{youtubeLinkForFancybox}}" ng-click="fancyboxClick($event, 'banner')" easy-fancybox="fancyboxParams">
+                    <img ng-src="{{imageFolder + initJson.banner_img}}" alt="線上即時開票">
+                </a>
+            </div>
+        </div>
+        <!--主圖結束-->
+        <!--footer 按鈕選單 begin-->
+        <div class="main-left">
+            <a class="big-hidden" style="float: left; margin-left: 15px; cursor: pointer; display: none;" url-back hidden-mode="none">
+                <img src="/images/prev.png" style="vertical-align: middle;">
+            </a>
+            <a class="red_btn marginr" ng-click="voteTypeChangeEvent(pageTypeCode.PRESIDENT_TOTAL_VOTE)">總統大選</a>
+            <a class="red_btn marginr" ng-click="voteTypeChangeEvent(pageTypeCode.CITYS_SELECT_LEGISLATOR)">立委選舉</a>
+            <a class="red_btn marginr" ng-click="voteTypeChangeEvent(pageTypeCode.NON_AREA_LEGISLATOR_LIST)">不分區</a>
+        </div>
+        <!--footer 按鈕選單 end-->
+    </div>
+
+    <!--內容子區塊 begin-->
+
+    <div ng-view ng-class="((currentWindowWidth <= mobileWindowWidth) ? 'anim-left-to-right-fade-leave' : 'anim-left-to-right')" style="padding-bottom: 70px;"></div>
+    <!--內容子區塊 end-->
+    <!-- gotop STR -->
+    <div id="gotop">
+        <a href="javascript:;" class="scrollup">Scroll</a>
+    </div>
+    <!-- gotop END -->
+
+    <input id="hi" type="hidden" value="$#JSON$#" />
+    <input id="ha" type="hidden" value="$#API$#" />
+
+    <!-- 相依元件JS begin -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--IE9(含)以上能載入倒數計時主程式，IE8(含)以下不支援，載入會發生錯誤-->
+    <!--[if gte IE 9]><!-->
+    <script src="/js/ui/countdown_v5.0/countdown.js"></script>
+    <!--<![endif]-->
+
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular-animate.min.js"></script>
+    <!--<script src="http://maps.googleapis.com/maps/api/js"></script>-->
+    <script src="/js/bundle/2016vote.min.js"></script>
+    <!-- 相依元件JS end -->
+
+</body>
+</html>

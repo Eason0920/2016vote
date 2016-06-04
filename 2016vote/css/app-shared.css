@@ -1,0 +1,40 @@
+﻿/*#region 關閉頁面選取資料高亮 */
+
+body {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/*#endregion */
+
+@media screen and (max-width: 849px) {
+
+    /*#region *** 行動裝置瀏覽時，將開票率文字移至開票進度條內 *** */
+
+    .mobileProgress {
+        position: relative;
+    }
+
+        .mobileProgress > span:first-child {
+            position: absolute;
+            color: #000;
+            font-size: 1.4em;
+            top: 28%;
+            margin-left: 5%;
+        }
+
+    /*#endregion */
+}
+
+@media screen and (max-width: 420px) {
+
+    /*#region *** 行動裝置瀏覽時，文字縮小 *** */
+
+    .mobileScaleTextSize {
+        font-size: 0.8em;
+    }
+
+    /*#endregion */
+}
